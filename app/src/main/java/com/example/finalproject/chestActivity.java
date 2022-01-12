@@ -175,7 +175,7 @@ public class chestActivity extends AppCompatActivity {
         //Save exercise object to DB
 //        db.putObject("exercise", ex);
         //Updates the list
-        if(lst[0].isEmpty()){
+        if(lst[0].size() <= num || lst[0].isEmpty()){
             lst[0].add(0, ex);
         }
         else{

@@ -37,7 +37,6 @@ public class setLegs extends AppCompatActivity {
         //A check so we will always have the "Choose .." option
         if(!exercises.contains("Choose .."))
             exercises.add(0, "Choose ..");
-
         //Initialize Adapter for the Spinner
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 R.layout.support_simple_spinner_dropdown_item, exercises);
@@ -73,7 +72,8 @@ public class setLegs extends AppCompatActivity {
                 Log.d("TAG", "onCreate: "+e);
             }
             //If there's no such exercise, alert
-            if(!exercises.contains(delExerciseInput.getText().toString())){
+            if(!exercises.contains(delExerciseInput.getText().toString())
+                    || delExerciseInput.getText().toString().equals("Choose ..")){
                 Toast.makeText(getBaseContext(), "No Such Exercise", Toast.LENGTH_SHORT).show();
             }
             //Else, delete

@@ -175,7 +175,7 @@ public class backActivity extends AppCompatActivity {
         //Save exercise object to DB
 //        db.putObject("exercise", ex);
         //Updates the list
-        if(lst[0].isEmpty()){
+        if(lst[0].size() <= num || lst[0].isEmpty()){
             lst[0].add(0, ex);
         }
         else{
@@ -192,7 +192,7 @@ public class backActivity extends AppCompatActivity {
         TextView weightInput =  findViewById(id);
         currentTV = (num == 0) ? "exerciseTV" : "exerciseTV" + num;
         id = getResources().getIdentifier(currentTV, "id", getPackageName());
-        TextView exerciseTV =  findViewById(id);
+        TextView exerciseTV = findViewById(id);
         //Update the view
         if (ex != null) {
             repsInput.setVisibility(View.VISIBLE);

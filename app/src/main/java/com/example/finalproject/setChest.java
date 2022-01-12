@@ -73,7 +73,8 @@ public class setChest extends AppCompatActivity {
                 Log.d("TAG", "onCreate: "+e);
             }
             //If there's no such exercise, alert
-            if(!exercises.contains(delExerciseInput.getText().toString())){
+            if(!exercises.contains(delExerciseInput.getText().toString())
+                    || delExerciseInput.getText().toString().equals("Choose ..")){
                 Toast.makeText(getBaseContext(), "No Such Exercise", Toast.LENGTH_SHORT).show();
             }
             //Else, delete
