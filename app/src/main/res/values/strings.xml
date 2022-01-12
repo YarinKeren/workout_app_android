@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Gymatize</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="reset">Reset</string>
+    <string name="timeWatch">00:00:00</string>
+    <string name="title_activity_chest">chestActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="chest_workout_header">Chest Workout</string>
+    <string name="weightTV">Weight</string>
+    <string name="exerciseTV">Exercise</string>
+    <string name="repsTV">Reps</string>
+    <string name="new_exerciseTV">New Exercise</string>
+    <string name="timerStartValue">00:00:00</string>
+    <string name="kg">KG</string>
+    <string name="add_change">Add/Change</string>
+    <string name="weight">Weight</string>
+    <string name="exercise">Exercise</string>
+    <string name="reps">Reps</string>
+    <string name="add_exercise">Add Exercise</string>
+    <string name="add">Add</string>
+    <string name="save">Save</string>
+    <string name="delete_exercise">Delete Exercise</string>
+    <string name="delete">Delete</string>
+    <string name="start_timer_description">Start Timer</string>
+    <string name="restart_timer_description">Restart Timer</string>
+    <string name="chest">Chest</string>
+    <string name="back">Back</string>
+    <string name="legs">Legs</string>
+    <string name="back_workout">Back Workout</string>
+    <string name="legs_workout">Legs Workout</string>
+</resources>
