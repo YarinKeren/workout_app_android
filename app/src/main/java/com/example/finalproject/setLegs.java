@@ -85,20 +85,27 @@ public class setLegs extends AppCompatActivity {
         });
         //Saves a new exercise, and goes back to where we came from
         saveExercise.setOnClickListener(view ->{
-            //Creates a new object of type Exercise with data from the input
-            Exercise e1 = new Exercise(exSpinner.getSelectedItem().toString(),
-                    Integer.parseInt(repsInput.getText().toString()),
-                    Integer.parseInt(weightInput.getText().toString()));
-            //Makes a new intent to send the data back
-            Intent sendExercise = new Intent(this, legsActivity.class);
-            //Puts the data on the intent
-            sendExercise.putExtra("exercise", e1);
-            //Pops a toast to the screen
-            Toast.makeText(getBaseContext(), "Saved!", Toast.LENGTH_SHORT).show();
-            //Sends the intent back to where we called it from
-            setResult(RESULT_OK, sendExercise);
-            //Kills intent instance
-            finish();
+            //In case no exercise was chosen
+            if(exSpinner.getSelectedItem().toString().equals("Choose ..")){
+                Toast.makeText(getBaseContext(), "Please Choose an Exercise !",
+                        Toast.LENGTH_SHORT).show();
+            }
+            else{
+                //Creates a new object of type Exercise with data from the input
+                Exercise e1 = new Exercise(exSpinner.getSelectedItem().toString(),
+                        Integer.parseInt(repsInput.getText().toString()),
+                        Integer.parseInt(weightInput.getText().toString()));
+                //Makes a new intent to send the data back
+                Intent sendExercise = new Intent(this, backActivity.class);
+                //Puts the data on the intent
+                sendExercise.putExtra("exercise", e1);
+                //Pops a toast to the screen
+                Toast.makeText(getBaseContext(), "Saved!", Toast.LENGTH_SHORT).show();
+                //Sends the intent back to where we called it from
+                setResult(RESULT_OK, sendExercise);
+                //Kills intent instance
+                finish();
+            }
         });
     }
 }
