@@ -2,13 +2,10 @@ package com.example.finalproject;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -24,12 +21,11 @@ public class backActivity extends AppCompatActivity {
             exerciseTV3, repsInput4, weightInput4, exerciseTV4;
 
     @SuppressLint("SetTextI18n")
+    @SuppressWarnings("unchecked")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_back);
-        //Calls the func
-        setActionBar();
         //Makes an instance of the tinyDB to store objects (Acts like SharedPreferences)
         TinyDB tinydb = new TinyDB(getApplicationContext());
         //Initialize vars for views
@@ -158,7 +154,7 @@ public class backActivity extends AppCompatActivity {
                 getFourthExercise.launch(intent);
             }
             else{
-                Toast.makeText(getBaseContext(), "Input 3nd Exercise before", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Input 3rd Exercise before", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -200,17 +196,6 @@ public class backActivity extends AppCompatActivity {
             exerciseTV.setText(ex.getExerciseName());
             repsInput.setText(String.valueOf(ex.getReps()));
             weightInput.setText(ex.getWeight() +"KG");
-        }
-    }
-    public void setActionBar(){
-        // Define ActionBar object
-        ActionBar actionBar;
-        actionBar = getSupportActionBar();
-        ColorDrawable colorDrawable
-                = new ColorDrawable(Color.parseColor("#000000"));
-        // Set BackgroundDrawable
-        if (actionBar != null) {
-            actionBar.setBackgroundDrawable(colorDrawable);
         }
     }
 }

@@ -3,32 +3,42 @@
     package="com.example.finalproject">
 
     <application
+        android:fullBackupOnly="true"
         android:allowBackup="true"
         android:icon="@drawable/appicon"
         android:label="@string/app_name"
         android:roundIcon="@drawable/appicon"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.FinalProject">
+        android:theme="@style/Theme.FinalProject"
+        android:supportsRtl="false"
+        >
+
         <activity
             android:name=".setLegs"
+            android:theme="@style/DemoTheme"
             android:exported="false" />
         <activity
             android:name=".setBack"
+            android:theme="@style/DemoTheme"
             android:exported="false" />
         <activity
             android:name=".setChest"
+            android:theme="@style/DemoTheme"
             android:exported="false" />
         <activity
             android:name=".legsActivity"
+            android:theme="@style/DemoTheme"
             android:exported="false" />
         <activity
             android:name=".backActivity"
+            android:theme="@style/DemoTheme"
             android:exported="false" />
         <activity
             android:name=".chestActivity"
+            android:theme="@style/DemoTheme"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:theme="@style/DemoTheme"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

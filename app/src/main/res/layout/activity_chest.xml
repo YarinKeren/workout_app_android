@@ -11,14 +11,16 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="320dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@drawable/roundtimer"
         android:backgroundTint="#28C5C5C5"
         android:fontFamily="@font/workoutfont"
         android:text="@string/chest_workout_header"
         android:textColor="#FFFFFF"
-        android:textSize="85sp"
+        android:textSize="70sp"
+        android:textAlignment="center"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,11 +37,12 @@
         android:fontFamily="@font/oldsportathletic"
         android:text="@string/weightTV"
         android:textAlignment="center"
+        android:gravity="center"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.3" />
@@ -53,8 +56,9 @@
         android:fontFamily="@font/oldsportathletic"
         android:text="@string/exerciseTV"
         android:textAlignment="center"
+        android:gravity="center"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.125"
@@ -71,8 +75,9 @@
         android:fontFamily="@font/oldsportathletic"
         android:text="@string/repsTV"
         android:textAlignment="center"
+        android:gravity="center"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -97,7 +102,7 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.879"
+        app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/weight"
         app:layout_constraintVertical_bias="0.06" />
@@ -119,7 +124,7 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.885"
+        app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/weightTV1"
         app:layout_constraintVertical_bias="0.15" />
@@ -169,7 +174,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exerciseTV1"
         app:layout_constraintVertical_bias="0.15"
-        tools:ignore="Autofill,LabelFor,TextFields" />
+        tools:ignore="Autofill,LabelFor,TextFields,DuplicateSpeakableTextCheck" />
 
     <EditText
         android:id="@+id/exerciseTV3"
@@ -213,7 +218,7 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.885"
+        app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/weightTV"
         app:layout_constraintVertical_bias="0.1" />
@@ -235,7 +240,7 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.885"
+        app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/weightTV2"
         app:layout_constraintVertical_bias="0.2" />

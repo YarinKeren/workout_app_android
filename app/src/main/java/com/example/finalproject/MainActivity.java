@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,21 +28,12 @@ public class MainActivity extends AppCompatActivity {
     Intent moveToChest, moveToBack, moveToLegs;
     MediaPlayer mp;
 
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Define ActionBar object
-        ActionBar actionBar;
-        actionBar = getSupportActionBar();
-        ColorDrawable colorDrawable
-                = new ColorDrawable(Color.parseColor("#000000"));
-        // Set BackgroundDrawable
-        if (actionBar != null) {
-            actionBar.setBackgroundDrawable(colorDrawable);
-        }
 
         //Initialize view vars
         timer = findViewById(R.id.tvTimer);
