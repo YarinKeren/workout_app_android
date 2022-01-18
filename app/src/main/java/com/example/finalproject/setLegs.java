@@ -96,7 +96,7 @@ public class setLegs extends AppCompatActivity {
                         Integer.parseInt(repsInput.getText().toString()),
                         Integer.parseInt(weightInput.getText().toString()));
                 //Makes a new intent to send the data back
-                Intent sendExercise = new Intent(this, backActivity.class);
+                Intent sendExercise = new Intent(this, legsActivity.class);
                 //Puts the data on the intent
                 sendExercise.putExtra("exercise", e1);
                 //Pops a toast to the screen
