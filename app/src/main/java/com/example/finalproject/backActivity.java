@@ -168,8 +168,6 @@ public class backActivity extends AppCompatActivity {
         if (data != null) {
             ex = data.getParcelableExtra("exercise");
         }
-        //Save exercise object to DB
-//        db.putObject("exercise", ex);
         //Updates the list
         if(lst[0].size() <= num || lst[0].isEmpty()){
             lst[0].add(0, ex);
