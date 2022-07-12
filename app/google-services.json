@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "925763271187",
+    "project_id": "fitshare-95e9d",
+    "storage_bucket": "fitshare-95e9d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:925763271187:android:5b26445e4e52f9bcf49de6",
+        "android_client_info": {
+          "package_name": "com.example.finalproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "925763271187-aaavhuueavk0cu49hjcirelp44nl20ut.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEQBwA4y7LcQHpKp8lsyLwezp_iZrnVtI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "925763271187-aaavhuueavk0cu49hjcirelp44nl20ut.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,13 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/drawable/edit_text_border.xml" value="0.188" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout-v31/activity_main.xml" value="0.2734375" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_back.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_chest.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_chest2.xml" value="0.23550724637681159" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_chest3.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_entryui.xml" value="0.1796875" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_legs.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_login2.xml" value="0.1796875" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_login_window.xml" value="0.22" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_main.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_register.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_set_back.xml" value="0.23550724637681159" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_set_chest.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_set_legs.xml" value="0.3333333333333333" />

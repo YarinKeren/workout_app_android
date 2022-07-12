@@ -1,45 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.finalproject">
+    package="com.example.finalproject" >
 
     <application
-        android:fullBackupOnly="true"
         android:allowBackup="true"
+        android:fullBackupOnly="true"
         android:icon="@drawable/appicon"
         android:label="@string/app_name"
         android:roundIcon="@drawable/appicon"
-        android:theme="@style/Theme.FinalProject"
         android:supportsRtl="false"
-        >
-
+        android:theme="@style/Theme.FinalProject" >
         <activity
-            android:name=".setLegs"
-            android:theme="@style/DemoTheme"
+            android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".setBack"
-            android:theme="@style/DemoTheme"
-            android:exported="false" />
-        <activity
-            android:name=".setChest"
-            android:theme="@style/DemoTheme"
-            android:exported="false" />
-        <activity
-            android:name=".legsActivity"
-            android:theme="@style/DemoTheme"
-            android:exported="false" />
-        <activity
-            android:name=".backActivity"
-            android:theme="@style/DemoTheme"
-            android:exported="false" />
-        <activity
-            android:name=".chestActivity"
-            android:theme="@style/DemoTheme"
-            android:exported="false" />
+            android:name=".ui.login.LoginActivity2"
+            android:exported="false"
+            android:label="@string/title_activity_login2" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/DemoTheme"
-            android:exported="true">
+            android:exported="false"
+            android:theme="@style/DemoTheme" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:theme="@style/DemoTheme" />
+        <activity
+            android:name=".setLegs"
+            android:exported="false"
+            android:theme="@style/DemoTheme" />
+        <activity
+            android:name=".setBack"
+            android:exported="false"
+            android:theme="@style/DemoTheme" />
+        <activity
+            android:name=".setChest"
+            android:exported="false"
+            android:theme="@style/DemoTheme" />
+        <activity
+            android:name=".legsActivity"
+            android:exported="false"
+            android:theme="@style/DemoTheme" />
+        <activity
+            android:name=".backActivity"
+            android:exported="false"
+            android:theme="@style/DemoTheme" />
+        <activity
+            android:name=".chestActivity"
+            android:exported="false"
+            android:theme="@style/DemoTheme" />
+        <activity
+            android:name=".EntryUIActivity"
+            android:exported="true"
+            android:theme="@style/DemoTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
