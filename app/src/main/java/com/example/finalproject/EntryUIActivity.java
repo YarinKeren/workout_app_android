@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 public class EntryUIActivity extends AppCompatActivity {
@@ -22,18 +21,8 @@ public class EntryUIActivity extends AppCompatActivity {
         entryLoginButton = findViewById(R.id.entryLoginButton);
         entryRegisterButton = findViewById(R.id.entryRegisterButton);
 
-        entryLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(moveToLogin);
-            }
-        });
+        entryLoginButton.setOnClickListener(v -> startActivity(moveToLogin));
 
-        entryRegisterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(moveToRegister);
-            }
-        });
+        entryRegisterButton.setOnClickListener(v -> startActivity(moveToRegister));
     }
 }

@@ -12,14 +12,12 @@
         android:theme="@style/Theme.FinalProject">
         <activity
             android:name=".RecoveryActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/DemoTheme"/>
         <activity
             android:name=".RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.login.LoginActivity2"
             android:exported="false"
-            android:label="@string/title_activity_login2" />
+            android:theme="@style/DemoTheme"/>
         <activity
             android:name=".MainActivity"
             android:exported="false"
@@ -27,7 +25,8 @@
         <activity
             android:name=".LoginActivity"
             android:exported="false"
-            android:theme="@style/DemoTheme" />
+            android:theme="@style/DemoTheme"
+            android:noHistory="true"/>
         <activity
             android:name=".setLegs"
             android:exported="false"

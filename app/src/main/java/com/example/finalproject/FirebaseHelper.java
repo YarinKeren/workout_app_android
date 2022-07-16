@@ -13,13 +13,13 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class FirebaseHelper {
     public static FirebaseDatabase database;
     public static DatabaseReference myRef;
     public static List<Map<String,String>> fromDBList;
     public static List<Map<String,Long>> fromDBNums;
-    public static List<User> dbUserList;
 
 
     public FirebaseHelper(final String path)
@@ -31,13 +31,14 @@ public class FirebaseHelper {
         myRef.addValueEventListener(new ValueEventListener() {
 
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 fromDBList = new ArrayList<>();
                 fromDBNums = new ArrayList<>();
 
                 Log.d("FB", "onDataChange: STARTED DOWNLOADING..");
+
 
 
                 for (DataSnapshot data : dataSnapshot.getChildren()) { //בפועל יורד הדאטהבייס
@@ -53,7 +54,7 @@ public class FirebaseHelper {
 
 
             @Override
-            public void onCancelled(DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError error) {
                 // Failed to read value
                 Log.w("FB", "Failed to read value.", error.toException());
             }
@@ -91,8 +92,8 @@ public class FirebaseHelper {
     }
     public static String isExists(String name,double age,String mail) {
         for (int i = 0; i < fromDBList.size(); i++) {
-            if(fromDBList.get(i).get("username").equals(name) &&
-                    fromDBList.get(i).get("mail").equals(mail) &&
+            if(Objects.equals(fromDBList.get(i).get("username"), name) &&
+                    Objects.equals(fromDBList.get(i).get("mail"), mail) &&
                     fromDBNums.get(i).get("age") == age)
                 return fromDBList.get(i).get("password");
         }
@@ -101,7 +102,7 @@ public class FirebaseHelper {
     }
     public static boolean isExists(String name) {
         for (Map<String,String> map: fromDBList) {
-            if(map.get("username").equals(name)) {
+            if(Objects.equals(map.get("username"), name)) {
                 Log.d("FB", "isExists: Username already exists");
                 return true;
 
