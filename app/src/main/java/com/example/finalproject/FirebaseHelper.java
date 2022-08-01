@@ -39,16 +39,12 @@ public class FirebaseHelper {
 
                 Log.d("FB", "onDataChange: STARTED DOWNLOADING..");
 
-
-
                 for (DataSnapshot data : dataSnapshot.getChildren()) { //בפועל יורד הדאטהבייס
                     fromDBList.add((Map) data.getValue());
                     fromDBNums.add((Map) data.getValue());
 
                 }
-                Log.d("FB", "onDataChange: DOWNLOADED ALL LISTS AND ARE READY");
-
-
+                Log.d("FB", "onDataChange: DOWNLOADED ALL LISTS AND THEYR'E READY");
 
             }
 
@@ -65,18 +61,18 @@ public class FirebaseHelper {
         List<User> userList = new ArrayList<>();
         for(int i=0;i<fromDBList.size();i++)//ריצה על רשימת המפות - צריך לוודא שהיא מוכנה
         {
-
-            User temp = new User(fromDBList.get(i).get("username"),fromDBList.get(i).get("password"),fromDBNums.get(i).get("age"),fromDBList.get(i).get("mail"), Math.toIntExact(fromDBNums.get(i).get("accessLevel")));
+            User temp = new User(fromDBList.get(i).get("userName"),fromDBList.get(i).get("password"),fromDBNums.get(i).get("age"),fromDBList.get(i).get("mail"), Math.toIntExact(fromDBNums.get(i).get("accessLevel")));
             userList.add(temp);
         }
+        Log.d("FB", "convertToUserList: "+userList);
         return userList;
     }
 
-    public static boolean login(String username,String password) {
+    public static boolean login(String userName,String password) {
         if(myRef != null && LoggedInUser.dbUserList != null)
         {
             for (User u: LoggedInUser.dbUserList) {
-                if(u.getUsername().equals(username) && u.getPassword().equals(password))
+                if(u.getUserName().equals(userName) && u.getPassword().equals(password))
                 {
                     Log.d("FB", "login: Login successful");
                     LoggedInUser.loggedUser=u;
@@ -92,7 +88,7 @@ public class FirebaseHelper {
     }
     public static String isExists(String name,double age,String mail) {
         for (int i = 0; i < fromDBList.size(); i++) {
-            if(Objects.equals(fromDBList.get(i).get("username"), name) &&
+            if(Objects.equals(fromDBList.get(i).get("userName"), name) &&
                     Objects.equals(fromDBList.get(i).get("mail"), mail) &&
                     fromDBNums.get(i).get("age") == age)
                 return fromDBList.get(i).get("password");
@@ -102,8 +98,8 @@ public class FirebaseHelper {
     }
     public static boolean isExists(String name) {
         for (Map<String,String> map: fromDBList) {
-            if(Objects.equals(map.get("username"), name)) {
-                Log.d("FB", "isExists: Username already exists");
+            if(Objects.equals(map.get("userName"), name)) {
+                Log.d("FB", "isExists: userName already exists");
                 return true;
 
             }
@@ -112,8 +108,10 @@ public class FirebaseHelper {
     }
 
     public static boolean register(User user) {
+        Log.d("FB", "register is null ? : "+myRef);
         if(myRef != null){
             try{
+                Log.d("FB", "Went inside, ref is not null");
                 myRef.push().setValue(user);
                 Log.d("FB", "register success! for"+user);
                 return true;

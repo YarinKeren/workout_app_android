@@ -5,8 +5,8 @@ import android.os.Parcelable;
 
 public class Exercise implements Parcelable {
     private String exerciseName;
-    private int reps;
-    private int weight;
+    private double reps;
+    private double weight;
 
     public Exercise(String n, int r, int w){
         this.exerciseName = n;
@@ -17,13 +17,13 @@ public class Exercise implements Parcelable {
 
     public void setExerciseName(String exerciseName) {this.exerciseName = exerciseName;}
 
-    public int getReps() {return reps;}
+    public double getReps() {return reps;}
 
-    public void setReps(int reps) {this.reps = reps;}
+    public void setReps(double reps) {this.reps = reps;}
 
-    public int getWeight() {return weight;}
+    public double getWeight() {return weight;}
 
-    public void setWeight(int weight) {this.weight = weight;}
+    public void setWeight(double weight) {this.weight = weight;}
 
 
     protected Exercise(Parcel in) {
@@ -52,7 +52,7 @@ public class Exercise implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(exerciseName);
-        dest.writeInt(reps);
-        dest.writeInt(weight);
+        dest.writeDouble(reps);
+        dest.writeDouble(weight);
     }
 }

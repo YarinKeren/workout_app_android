@@ -11,13 +11,17 @@
         android:supportsRtl="false"
         android:theme="@style/Theme.FinalProject">
         <activity
+            android:name=".UserListActivity"
+            android:exported="false" />
+        <activity
             android:name=".RecoveryActivity"
             android:exported="false"
-            android:theme="@style/DemoTheme"/>
+            android:theme="@style/DemoTheme" />
         <activity
             android:name=".RegisterActivity"
             android:exported="false"
-            android:theme="@style/DemoTheme"/>
+            android:noHistory="true"
+            android:theme="@style/DemoTheme" />
         <activity
             android:name=".MainActivity"
             android:exported="false"
@@ -25,8 +29,8 @@
         <activity
             android:name=".LoginActivity"
             android:exported="false"
-            android:theme="@style/DemoTheme"
-            android:noHistory="true"/>
+            android:noHistory="true"
+            android:theme="@style/DemoTheme" />
         <activity
             android:name=".setLegs"
             android:exported="false"

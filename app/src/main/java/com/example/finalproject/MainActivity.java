@@ -31,8 +31,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         //Initialize view vars
         timer = findViewById(R.id.tvTimer);
         startPauseBtn = findViewById(R.id.btStart);

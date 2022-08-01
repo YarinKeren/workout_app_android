@@ -13,7 +13,7 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_chest3.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_entryui.xml" value="0.1796875" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_legs.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_login.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_login2.xml" value="0.1796875" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_login_window.xml" value="0.22" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_main.xml" value="0.4466666666666667" />
@@ -22,10 +22,12 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_set_back.xml" value="0.23550724637681159" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_set_chest.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_set_legs.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/activity_user_list.xml" value="0.1796875" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/content_chest.xml" value="0.23550724637681159" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/content_chest2.xml" value="0.23550724637681159" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/fragment_first.xml" value="0.23550724637681159" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/fragment_second.xml" value="0.23550724637681159" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/finalProject/app/src/main/res/layout/list_item.xml" value="0.5" />
       </map>
     </option>
   </component>

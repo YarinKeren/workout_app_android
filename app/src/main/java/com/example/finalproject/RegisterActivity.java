@@ -26,7 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         fbh = new FirebaseHelper("Users");
 
-        moveToEntryUI = new Intent(this, LoginActivity.class);
+        moveToEntryUI = new Intent(this, EntryUIActivity.class);
 
         registerButton = findViewById(R.id.registerButton);
         username = findViewById(R.id.userNameInputRegister);
@@ -37,7 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
         handleQuestionMarks();
 
         registerButton.setOnClickListener(v -> {
-            if(! password.getText().toString().equals(repeatPassword.getText().toString()))
+            if(!password.getText().toString().equals(repeatPassword.getText().toString()))
                 Toast.makeText(getBaseContext(),"Passwords don't match!",Toast.LENGTH_LONG).show();
             else
             {
@@ -52,7 +52,7 @@ public class RegisterActivity extends AppCompatActivity {
                         return;
                     }
                     //should be okay now - Create user
-                    User tempUser = new User(username.getText().toString(),password.getText().toString(),Double.parseDouble(age.getText().toString()),email.getText().toString());
+                    User tempUser = new User(username.getText().toString(),password.getText().toString(),Double.valueOf(age.getText().toString()),email.getText().toString());
                     boolean status = FirebaseHelper.register(tempUser);
                     if(status){
                         Toast.makeText(RegisterActivity.this, "Registration Successful!", Toast.LENGTH_LONG).show();

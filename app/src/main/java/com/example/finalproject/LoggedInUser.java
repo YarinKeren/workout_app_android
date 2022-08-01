@@ -21,7 +21,7 @@ public class LoggedInUser {
         if(dbUserList != null)
         {
             for (User u: dbUserList) {
-                String temp = u.getUsername()+":"+u.getPassword();
+                String temp = u.getUserName()+":"+u.getPassword();
                 temp += u.getAccessLevel()==1 ? " (Admin)":"";
                 dbUserSt.add(temp);
             }

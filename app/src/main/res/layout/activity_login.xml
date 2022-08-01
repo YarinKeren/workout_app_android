@@ -127,25 +127,6 @@
         app:layout_constraintVertical_bias="0.438"
         tools:ignore="Autofill,LabelFor,TextFields" />
 
-    <TextView
-        android:id="@+id/forgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/roundtimer"
-        android:backgroundTint="#E2C5C5C5"
-        android:gravity="center"
-        android:text="@string/forgot_password"
-        android:textStyle="italic"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85" />
-
     <Button
         android:id="@+id/loginButton"
         style="?attr/materialButtonOutlinedStyle"
@@ -165,6 +146,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.743" />
+
+    <TextView
+        android:id="@+id/forgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundtimer"
+        android:backgroundTint="#E2C5C5C5"
+        android:gravity="center"
+        android:text="@string/forgot_password"
+        android:textStyle="italic"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85" />
 
     <ImageView
         android:id="@+id/imageView"

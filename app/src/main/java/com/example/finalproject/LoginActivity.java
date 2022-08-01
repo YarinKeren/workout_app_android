@@ -1,10 +1,13 @@
 package com.example.finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -31,15 +34,17 @@ public class LoginActivity extends AppCompatActivity {
         recoverPassword.setOnClickListener(v -> startActivity(new Intent(getBaseContext(),RecoveryActivity.class)));
 
         loginButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                String user = username.getText().toString();
-                String pass = password.getText().toString();
-                if(user.length() < 3) {
+
+                String userNameString = username.getText().toString();
+                String passwordString = password.getText().toString();
+                if(userNameString.length() < 3) {
                     Toast.makeText(LoginActivity.this, "Username is too short", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(pass.length()<1){
+                if(passwordString.length()<1){
                     Toast.makeText(LoginActivity.this, "Password is empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -50,12 +55,12 @@ public class LoginActivity extends AppCompatActivity {
                         super.run();
                         LoggedInUser.prepare(); //right before login attempt
                         LoggedInUser.prepareSt();
-                        boolean status = FirebaseHelper.login(user,pass);
+                        boolean status = FirebaseHelper.login(userNameString,passwordString);
 
                         if(status)
                         {
                             Toast.makeText(LoginActivity.this, "Logged in successfully!", Toast.LENGTH_SHORT).show();
-                            Toast.makeText(LoginActivity.this, "Hello "+LoggedInUser.loggedUser.getUsername(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, "Hello "+LoggedInUser.loggedUser.getUserName(), Toast.LENGTH_LONG).show();
                             startActivity(new Intent(getBaseContext(),MainActivity.class));
                         }
                         else Toast.makeText(LoginActivity.this, "Login failed!", Toast.LENGTH_SHORT).show();
@@ -67,8 +72,6 @@ public class LoginActivity extends AppCompatActivity {
             }
 
         });
-
-
 
 
     }
