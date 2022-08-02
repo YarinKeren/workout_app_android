@@ -21,7 +21,6 @@ public class FirebaseHelper {
     public static List<Map<String,String>> fromDBList;
     public static List<Map<String,Long>> fromDBNums;
 
-
     public FirebaseHelper(final String path)
     {
         database = FirebaseDatabase.getInstance();
@@ -29,7 +28,6 @@ public class FirebaseHelper {
         Log.d("FB", "FirebaseHelper: Connected");
 
         myRef.addValueEventListener(new ValueEventListener() {
-
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
@@ -42,9 +40,8 @@ public class FirebaseHelper {
                 for (DataSnapshot data : dataSnapshot.getChildren()) { //בפועל יורד הדאטהבייס
                     fromDBList.add((Map) data.getValue());
                     fromDBNums.add((Map) data.getValue());
-
                 }
-                Log.d("FB", "onDataChange: DOWNLOADED ALL LISTS AND THEYR'E READY");
+                Log.d("FB", "onDataChange: DOWNLOADED ALL LISTS AND THEY ARE READY");
 
             }
 
@@ -108,10 +105,8 @@ public class FirebaseHelper {
     }
 
     public static boolean register(User user) {
-        Log.d("FB", "register is null ? : "+myRef);
         if(myRef != null){
             try{
-                Log.d("FB", "Went inside, ref is not null");
                 myRef.push().setValue(user);
                 Log.d("FB", "register success! for"+user);
                 return true;
@@ -123,7 +118,6 @@ public class FirebaseHelper {
             }
         }
         return false;
-
     }
 
 
