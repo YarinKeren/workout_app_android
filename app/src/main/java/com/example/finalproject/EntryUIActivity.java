@@ -12,8 +12,8 @@ import android.widget.Toast;
 
 public class EntryUIActivity extends AppCompatActivity {
 
-    Intent moveToLogin, moveToRegister, moveToUserList;
-    Button entryLoginButton, entryRegisterButton, userListButton;
+    Intent moveToLogin, moveToRegister, moveToUserList, moveToMain;
+    Button entryLoginButton, entryRegisterButton, userListButton, entryBackToMainButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,18 +23,24 @@ public class EntryUIActivity extends AppCompatActivity {
         moveToLogin = new Intent(this, LoginActivity.class);
         moveToRegister = new Intent(this, RegisterActivity.class);
         moveToUserList = new Intent(this, UserListActivity.class);
+        moveToMain = new Intent(this, MainActivity.class);
         entryLoginButton = findViewById(R.id.entryLoginButton);
         entryRegisterButton = findViewById(R.id.entryRegisterButton);
+        entryBackToMainButton = findViewById(R.id.entryBackToMainButton);
         userListButton = findViewById(R.id.userListButton);
 
         if(LoggedInUser.loggedUser != null){
             entryLoginButton.setText("Logout");
+            entryRegisterButton.setVisibility(View.INVISIBLE);
+            entryBackToMainButton.setVisibility(View.VISIBLE);
             if(LoggedInUser.loggedUser.getAccessLevel() == 1)
                 userListButton.setVisibility(View.VISIBLE);
         }
         else{
             Toast.makeText(this, "Please Log In !", Toast.LENGTH_SHORT).show();
             entryLoginButton.setText("Login");
+            entryBackToMainButton.setVisibility(View.INVISIBLE);
+            entryRegisterButton.setVisibility(View.VISIBLE);
         }
 
         DialogInterface.OnClickListener dialogListener = new DialogInterface.OnClickListener() {
@@ -45,6 +51,7 @@ public class EntryUIActivity extends AppCompatActivity {
                         LoggedInUser.loggedUser = null; //Forcing a log out
                         entryLoginButton.setText("Logout");
                         startActivity(new Intent(getBaseContext(), EntryUIActivity.class));
+                        finish();
                         break;
                     case DialogInterface.BUTTON_NEGATIVE:
                         Toast.makeText(EntryUIActivity.this, "Didn't Log Out (:", Toast.LENGTH_SHORT).show();
@@ -81,6 +88,8 @@ public class EntryUIActivity extends AppCompatActivity {
                 startActivity(moveToRegister);
             }
         });
+
+        entryBackToMainButton.setOnClickListener(v -> startActivity(moveToMain));
 
         userListButton.setOnClickListener(v -> startActivity(moveToUserList));
     }

@@ -117,11 +117,27 @@ public class fbExerciseHelper {
 //        return false;
 //    }
 
+    public static boolean addExerciseObject(Exercise ex){
+        if(myRef != null){
+            try{
+                myRef.push().setValue(ex);
+                Log.d("FBE", "Exercise Object added successfully");
+                return true;
+            }
+            catch (Exception e){
+                Log.e("FBE", "Failed to add exercise object, reason : "+e);
+                return false;
+            }
+        }
+        return false;
+    }
+
     public static boolean addExerciseName(String exerciseName){
         if(myRef != null){
             try {
                 myRef.push().setValue(exerciseName);
                 Log.d("FBE", "Exercise name added successfully");
+                return true;
             }
             catch (Exception e){
                 Log.e("FBE", "Failed to add exercise name, reason : "+e);
@@ -142,13 +158,24 @@ public class fbExerciseHelper {
     }
 
     public static void deleteExerciseName(String name){
-        try{
-            //Removes the exercise from the list
-            dbExerciseList.remove(name);
-        }
-        catch (Exception e){
-            Log.e("FBE", "cant delete, reason : "+e);
-        }
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //Iterate over exercise names in the Database
+                for (DataSnapshot exerciseSnapshot : dataSnapshot.getChildren()){
+                    //If the current value of the line in the database matches the
+                    //name we want to delete..
+                    if(Objects.equals(exerciseSnapshot.getValue(), name)){
+                        exerciseSnapshot.getRef().removeValue();
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("FBE", "Didn't Delete" );
+            };
+
+        });
     }
 
 }

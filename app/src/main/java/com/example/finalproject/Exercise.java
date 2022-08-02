@@ -8,7 +8,7 @@ public class Exercise implements Parcelable {
     private double reps;
     private double weight;
 
-    public Exercise(String n, int r, int w){
+    public Exercise(String n, double r, double w){
         this.exerciseName = n;
         this.reps = r;
         this.weight = w;
@@ -25,6 +25,14 @@ public class Exercise implements Parcelable {
 
     public void setWeight(double weight) {this.weight = weight;}
 
+    @Override
+    public String toString() {
+        return "Exercise{" +
+                "exerciseName='" + exerciseName + '\'' +
+                ", reps='" + reps + '\'' +
+                ", weight=" + weight +
+                '}';
+    }
 
     protected Exercise(Parcel in) {
         exerciseName = in.readString();

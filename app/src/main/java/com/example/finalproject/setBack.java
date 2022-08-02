@@ -14,11 +14,13 @@ import java.util.ArrayList;
 
 public class setBack extends AppCompatActivity {
 
-    fbExerciseHelper fbh;
+    fbExerciseHelper fbh1;
+    fbExerciseObjectHelper fbh2;
     Button addExercise, delExercise, saveExercise;
     EditText getExercise, delExerciseInput, repsInput, weightInput;
     Spinner exSpinner;
-    ArrayList<String> exercises;
+    ArrayList<String> exercisesNames;
+    ArrayList<Exercise> exercises;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +28,8 @@ public class setBack extends AppCompatActivity {
         setContentView(R.layout.activity_set_back);
 
         //Gets a reference to the firebase database
-        fbh = new fbExerciseHelper("ExercisesNames");
+        fbh1 = new fbExerciseHelper("ExercisesNames");
+        fbh2 = new fbExerciseObjectHelper("ExerciseObject");
 
         //Initialize references for all the views
         getExercise = findViewById(R.id.exerciseInput);
@@ -39,16 +42,15 @@ public class setBack extends AppCompatActivity {
         exSpinner = findViewById(R.id.firstExSpinner);
 
         //Initialize the DB, and an ArrayList with all the data from the DB
-        TinyDB tinydb = new TinyDB(getApplicationContext());
-        //ArrayList<String> exercises = new ArrayList<>(tinydb.getListString("backExercises"));
+//        TinyDB tinydb = new TinyDB(getApplicationContext());
 
-        //**************TRIAL*****************
         Thread t = new Thread() {
             @Override
             public void run() {
                 super.run();
                 //Adds exercise name to the exercise names list
-                exercises = new ArrayList<>(fbExerciseHelper.getExercisesNames());
+                exercisesNames = new ArrayList<>(fbExerciseHelper.getExercisesNames());
+                exercises = new ArrayList<>(fbExerciseObjectHelper.getExerciseList());
                 updateList();
                 //Adds an exercise
                 addExercise.setOnClickListener(v -> {
@@ -68,8 +70,6 @@ public class setBack extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "Exercise already exists !", Toast.LENGTH_SHORT).show();
                     }
                 });
-
-
 
                 //Deletes an exercise
                 delExercise.setOnClickListener(v ->{
@@ -102,20 +102,7 @@ public class setBack extends AppCompatActivity {
                         //Pops a message
                         Toast.makeText(getBaseContext(), "Exercise Deleted", Toast.LENGTH_SHORT).show();
                     }
-
-//                    if(!exercises.contains(delExerciseInput.getText().toString())
-//                            || delExerciseInput.getText().toString().equals("Choose ..")){
-//                        Toast.makeText(getBaseContext(), "No Such Exercise", Toast.LENGTH_SHORT).show();
-//                    }
-                    //Else, delete
-//                    else{
-//                        exercises.remove(delExerciseInput.getText().toString());
-//                        tinydb.putListString("backExercises", exercises);
-//                        Toast.makeText(getBaseContext(), "Exercise Deleted", Toast.LENGTH_SHORT).show();
-//                    }
                 });
-
-
 
                 //Saves a new exercise, and goes back to where we came from
                 saveExercise.setOnClickListener(view ->{
@@ -127,8 +114,27 @@ public class setBack extends AppCompatActivity {
                     else{
                         //Creates a new object of type Exercise with data from the input
                         Exercise e1 = new Exercise(exSpinner.getSelectedItem().toString(),
-                                Integer.parseInt(repsInput.getText().toString()),
-                                Integer.parseInt(weightInput.getText().toString()));
+                                Double.parseDouble(repsInput.getText().toString()),
+                                Double.parseDouble(weightInput.getText().toString()));
+
+                        //********TRIAL********
+
+                        //Adds the exercise object
+                        if (exercises.size() < 4)
+                            fbExerciseObjectHelper.addExerciseObject(e1);
+                        else{
+                            //Gets data from intent
+                            Bundle extras = getIntent().getExtras();
+                            //If the data is not null
+                            if (extras != null) {
+                                int num = extras.getInt("num");
+                                //Replaces object in the Database
+                                fbExerciseObjectHelper.replaceExerciseObject(num, e1);
+                            }
+                        }
+
+                        //********TRIAL********
+
                         //Makes a new intent to send the data back
                         Intent sendExercise = new Intent(getBaseContext(), backActivity.class);
                         //Puts the data on the intent
@@ -143,12 +149,8 @@ public class setBack extends AppCompatActivity {
                 });
             }
         }; //end of thread
-
-        Handler h = new Handler();
-        h.postDelayed(t,1000);
-
-        //**************TRIAL*****************
-
+        //Handling the thread (Makes delay)
+        new Handler().postDelayed(t, 500);
 
     }
     public void updateList(){
@@ -159,13 +161,13 @@ public class setBack extends AppCompatActivity {
             public void run() {
                 super.run();
                 //Updates exercisesNames list
-                exercises = new ArrayList<>(fbExerciseHelper.getExercisesNames());
+                exercisesNames = new ArrayList<>(fbExerciseHelper.getExercisesNames());
                 //A check so we will always have the "Choose .." option
-                if(!exercises.contains("Choose .."))
-                    exercises.add(0, "Choose ..");
+                if(!exercisesNames.contains("Choose .."))
+                    exercisesNames.add(0, "Choose ..");
                 //Initialize Adapter for the SpinnerView
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(getBaseContext(),
-                        R.layout.support_simple_spinner_dropdown_item, exercises);
+                        R.layout.support_simple_spinner_dropdown_item, exercisesNames);
 
                 //Sets the SpinnerView adapter
                 exSpinner.setAdapter(adapter);
