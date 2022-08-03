@@ -3,6 +3,8 @@ package com.example.finalproject;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.NonNull;
+
 public class Exercise implements Parcelable {
     private String exerciseName;
     private double reps;
@@ -25,6 +27,7 @@ public class Exercise implements Parcelable {
 
     public void setWeight(double weight) {this.weight = weight;}
 
+    @NonNull
     @Override
     public String toString() {
         return "Exercise{" +

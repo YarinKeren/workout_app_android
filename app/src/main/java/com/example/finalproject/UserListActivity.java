@@ -18,9 +18,6 @@ public class UserListActivity extends AppCompatActivity {
         listView=findViewById(R.id.listView);
         UserAdapter adapter =new UserAdapter(this,R.layout.list_item,LoggedInUser.dbUserList);
 
-        //ArrayAdapter<String> adapter= new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
-        //         LoggedInUser.dbUserSt);
-
         listView.setAdapter(adapter);
 
     }

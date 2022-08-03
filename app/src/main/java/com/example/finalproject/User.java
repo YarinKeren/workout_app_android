@@ -1,5 +1,8 @@
 package com.example.finalproject;
 
+import androidx.annotation.NonNull;
+
+@SuppressWarnings("unused")
 public class User {
 
     private String username;
@@ -21,13 +24,6 @@ public class User {
         this.age = age;
         this.mail = mail;
         this.accessLevel = accessLevel;
-    }
-    public User(String username, String password, String mail) {
-        this.username = username;
-        this.password = password;
-        this.age = 0;
-        this.mail = mail;
-        this.accessLevel = 0;
     }
 
     public String getUserName() {
@@ -66,6 +62,7 @@ public class User {
 
     public void setAccessLevel(int accessLevel) { this.accessLevel = accessLevel;}
 
+    @NonNull
     @Override
     public String toString() {
         return "User{" +

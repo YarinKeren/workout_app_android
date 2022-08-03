@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+@SuppressWarnings("InstantiationOfUtilityClass")
 public class RegisterActivity extends AppCompatActivity {
     FirebaseHelper fbh;
     Button registerButton;

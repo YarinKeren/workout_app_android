@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import java.util.ArrayList;
-
+@SuppressWarnings("InstantiationOfUtilityClass")
 public class setBack extends AppCompatActivity {
 
     fbExerciseHelper fbh1;
@@ -28,8 +28,8 @@ public class setBack extends AppCompatActivity {
         setContentView(R.layout.activity_set_back);
 
         //Gets a reference to the firebase database
-        fbh1 = new fbExerciseHelper("ExercisesNames");
-        fbh2 = new fbExerciseObjectHelper("ExerciseObject");
+        fbh1 = new fbExerciseHelper("BackExercisesNames");
+        fbh2 = new fbExerciseObjectHelper("BackExerciseObject");
 
         //Initialize references for all the views
         getExercise = findViewById(R.id.exerciseInput);
@@ -40,9 +40,6 @@ public class setBack extends AppCompatActivity {
         delExerciseInput = findViewById(R.id.deleteExInput);
         saveExercise = findViewById(R.id.saveExercise);
         exSpinner = findViewById(R.id.firstExSpinner);
-
-        //Initialize the DB, and an ArrayList with all the data from the DB
-//        TinyDB tinydb = new TinyDB(getApplicationContext());
 
         Thread t = new Thread() {
             @Override
@@ -58,7 +55,7 @@ public class setBack extends AppCompatActivity {
                     String newExercise = getExercise.getText().toString();
 
                     //Adds the exercise name to the Database
-                    if(!fbExerciseHelper.isExists(newExercise)){
+                    if(fbExerciseHelper.doesntExist(newExercise)){
                         //Adds the exercise to the list
                         fbExerciseHelper.addExerciseName(newExercise);
                         //Pops a message that we added the exercise
@@ -86,7 +83,7 @@ public class setBack extends AppCompatActivity {
                         Log.d("TAG", "onCreate: "+e);
                     }
                     //If there's no such exercise, alert
-                    if(!fbExerciseHelper.isExists(exToDelete) || exToDelete.equals("Choose ..")){
+                    if(fbExerciseHelper.doesntExist(exToDelete) || exToDelete.equals("Choose ..")){
                         //Clears the EditText
                         delExerciseInput.setText("");
                         //Pops a message

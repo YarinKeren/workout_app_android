@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+@SuppressWarnings("InstantiationOfUtilityClass")
 public class backActivity extends AppCompatActivity {
 
     //    EditText exerciseTV;
@@ -22,20 +23,14 @@ public class backActivity extends AppCompatActivity {
             exerciseTV3, repsInput4, weightInput4, exerciseTV4;
     fbExerciseObjectHelper fbh2;
     ArrayList<Exercise> exList;
-    ArrayList<Object>[] allExercises;
 
     @SuppressLint("SetTextI18n")
-    @SuppressWarnings("unchecked")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_back);
 
-        //Makes an instance of the tinyDB to store objects (Acts like SharedPreferences)
-        TinyDB tinydb = new TinyDB(getApplicationContext());
-
-        fbh2 = new fbExerciseObjectHelper("ExerciseObject");
-
+        fbh2 = new fbExerciseObjectHelper("BackExerciseObject");
 
         //Initialize vars for views
         exerciseTV = findViewById(R.id.exerciseTV);
@@ -58,37 +53,33 @@ public class backActivity extends AppCompatActivity {
                 super.run();
                 exList = fbExerciseObjectHelper.getExerciseList();
 
-                //A list to store all exercise objects, getting them from the tinydb
-                allExercises =
-                        new ArrayList[]{tinydb.getListObject("allBackExercises", Exercise.class)};
-
-                //Showing the exercises that are saved in the tinyDB
+                //Showing the exercises that are saved in the DB
                 if (!exList.isEmpty()) {
                     repsInput.setVisibility(View.VISIBLE);
                     weightInput.setVisibility(View.VISIBLE);
-                    exerciseTV.setText(((Exercise) exList.get(0)).getExerciseName());
-                    repsInput.setText(String.valueOf(Integer.valueOf((int) ((Exercise) exList.get(0)).getReps()).intValue()));
-                    weightInput.setText(((Exercise) exList.get(0)).getWeight() +"KG");
+                    exerciseTV.setText(exList.get(0).getExerciseName());
+                    repsInput.setText(String.valueOf(Integer.valueOf((int) exList.get(0).getReps()).intValue()));
+                    weightInput.setText(exList.get(0).getWeight() +"KG");
                     if(exList.size() > 1){
                         repsInput2.setVisibility(View.VISIBLE);
                         weightInput2.setVisibility(View.VISIBLE);
-                        exerciseTV2.setText(((Exercise) exList.get(1)).getExerciseName());
-                        repsInput2.setText(String.valueOf(Integer.valueOf((int) ((Exercise) exList.get(1)).getReps()).intValue()));
-                        weightInput2.setText(((Exercise) exList.get(1)).getWeight() +"KG");
+                        exerciseTV2.setText(exList.get(1).getExerciseName());
+                        repsInput2.setText(String.valueOf(Integer.valueOf((int) exList.get(1).getReps()).intValue()));
+                        weightInput2.setText(exList.get(1).getWeight() +"KG");
                     }
                     if(exList.size() > 2){
                         repsInput3.setVisibility(View.VISIBLE);
                         weightInput3.setVisibility(View.VISIBLE);
-                        exerciseTV3.setText(((Exercise) exList.get(2)).getExerciseName());
-                        repsInput3.setText(String.valueOf(Integer.valueOf((int) ((Exercise) exList.get(2)).getReps()).intValue()));
-                        weightInput3.setText(((Exercise) exList.get(2)).getWeight() +"KG");
+                        exerciseTV3.setText(exList.get(2).getExerciseName());
+                        repsInput3.setText(String.valueOf(Integer.valueOf((int) exList.get(2).getReps()).intValue()));
+                        weightInput3.setText(exList.get(2).getWeight() +"KG");
                     }
                     if(exList.size() > 3){
                         repsInput4.setVisibility(View.VISIBLE);
                         weightInput4.setVisibility(View.VISIBLE);
-                        exerciseTV4.setText(((Exercise) exList.get(3)).getExerciseName());
-                        repsInput4.setText(String.valueOf(Integer.valueOf((int) ((Exercise) exList.get(3)).getReps()).intValue()));
-                        weightInput4.setText(((Exercise) exList.get(3)).getWeight() +"KG");
+                        exerciseTV4.setText(exList.get(3).getExerciseName());
+                        repsInput4.setText(String.valueOf(Integer.valueOf((int) exList.get(3).getReps()).intValue()));
+                        weightInput4.setText(exList.get(3).getWeight() +"KG");
                     }
                 }
             }
@@ -212,8 +203,8 @@ public class backActivity extends AppCompatActivity {
                     repsInput.setVisibility(View.VISIBLE);
                     weightInput.setVisibility(View.VISIBLE);
                     exerciseTV.setText(ex[0].getExerciseName());
-                    repsInput.setText(String.valueOf(Integer.valueOf((int) ((Exercise) exList.get(num)).getReps()).intValue()));
-                    weightInput.setText(((Exercise) exList.get(num)).getWeight() +"KG");
+                    repsInput.setText(String.valueOf(Integer.valueOf((int) exList.get(num).getReps()).intValue()));
+                    weightInput.setText(exList.get(num).getWeight() +"KG");
                 }
             }
         };

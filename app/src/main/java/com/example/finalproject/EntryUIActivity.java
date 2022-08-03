@@ -3,6 +3,7 @@ package com.example.finalproject;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ public class EntryUIActivity extends AppCompatActivity {
     Intent moveToLogin, moveToRegister, moveToUserList, moveToMain;
     Button entryLoginButton, entryRegisterButton, userListButton, entryBackToMainButton;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,20 +45,17 @@ public class EntryUIActivity extends AppCompatActivity {
             entryRegisterButton.setVisibility(View.VISIBLE);
         }
 
-        DialogInterface.OnClickListener dialogListener = new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                switch(which){
-                    case DialogInterface.BUTTON_POSITIVE:
-                        LoggedInUser.loggedUser = null; //Forcing a log out
-                        entryLoginButton.setText("Logout");
-                        startActivity(new Intent(getBaseContext(), EntryUIActivity.class));
-                        finish();
-                        break;
-                    case DialogInterface.BUTTON_NEGATIVE:
-                        Toast.makeText(EntryUIActivity.this, "Didn't Log Out (:", Toast.LENGTH_SHORT).show();
-                        break;
-                }
+        DialogInterface.OnClickListener dialogListener = (dialog, which) -> {
+            switch(which){
+                case DialogInterface.BUTTON_POSITIVE:
+                    LoggedInUser.loggedUser = null; //Forcing a log out
+                    entryLoginButton.setText("Logout");
+                    startActivity(new Intent(getBaseContext(), EntryUIActivity.class));
+                    finish();
+                    break;
+                case DialogInterface.BUTTON_NEGATIVE:
+                    Toast.makeText(EntryUIActivity.this, "Didn't Log Out (:", Toast.LENGTH_SHORT).show();
+                    break;
             }
         };
 
@@ -65,28 +64,22 @@ public class EntryUIActivity extends AppCompatActivity {
                 .setPositiveButton("Yes", dialogListener)
                 .setNegativeButton("No", dialogListener);
 
-        entryLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(LoggedInUser.loggedUser == null){
-                    startActivity(new Intent(getBaseContext(), EntryUIActivity.class));
-                    finish(); //finish Activity.
-                    startActivity(moveToLogin);
-                }
-                else{
-                    //dialog show
-                    dialogBuilder.show();
-                }
+        entryLoginButton.setOnClickListener(v -> {
+            if(LoggedInUser.loggedUser == null){
+                startActivity(new Intent(getBaseContext(), EntryUIActivity.class));
+                finish(); //finish Activity.
+                startActivity(moveToLogin);
+            }
+            else{
+                //dialog show
+                dialogBuilder.show();
             }
         });
 
-        entryRegisterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), EntryUIActivity.class));
-                finish(); //finish Activity.
-                startActivity(moveToRegister);
-            }
+        entryRegisterButton.setOnClickListener(v -> {
+            startActivity(new Intent(getBaseContext(), EntryUIActivity.class));
+            finish(); //finish Activity.
+            startActivity(moveToRegister);
         });
 
         entryBackToMainButton.setOnClickListener(v -> startActivity(moveToMain));
