@@ -65,4 +65,7 @@
     <string name="show_user_list">show user list</string>
     <string name="logout">logout</string>
     <string name="back_to_main">Back To Main</string>
+    <string name="passwordListItem">Password :</string>
+    <string name="usernameListItem">Username :</string>
+    <string name="adminListItem">Admin</string>
 </resources>
